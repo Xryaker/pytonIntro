@@ -9,7 +9,7 @@ def validateInputArg():
         quit(-1)
     z = input("Введите знак(+, -): ")
     if not z == "+" or z == "-" or z == "/":
-        print("Третий знак не математический символ")
+        print("Неизвестная операция")
         quit(-1)
     if z == "/" and y == 0:
         print("На 0 делить нельзя")
