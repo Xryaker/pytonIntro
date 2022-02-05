@@ -7,21 +7,26 @@ c_m = {
 }
 
 
+def authenticate(usr):
+    return c_m.get(usr, False)
+
+
 def chek_pass(usr, pas):
-    if c_m.get(usr, False):
-        if c_m.get(usr) == pas:
-            return True
+    if c_m.get(usr) == pas:
+        return True
     else:
         return False
 
 
 def decorator(func):
     def wrapper(usr, pas):
-        if chek_pass(usr, pas):
-            return True
+        if authenticate(usr):
+            if chek_pass(usr, pas):
+                return True
+            else:
+                return False
         else:
             return False
-
     return wrapper
 
 
